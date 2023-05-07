@@ -1,14 +1,12 @@
 package stepDefinitions;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byCssSelector;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -31,7 +29,7 @@ public class NewUser {
 
     @When("The user clicks Register as a shipper button")
     public void the_user_clicks_Register_as_a_shipper_button() {
-        sleep(2000);
+        sleep(3000);
         $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-role-selection[1]/div[2]/div[2]/div[1]/app-checkbox-button[1]/div[1]/div[1]")).click();
     }
 
