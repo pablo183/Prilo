@@ -1,6 +1,9 @@
 package stepDefinitions;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,6 +25,14 @@ public class NewUser {
         $(By.xpath("//body/app-root[1]/app-cookie-bar[1]/div[1]/div[1]/div[2]/p-button[1]/button[1]")).click();
     }
 
+    @Given("The user changes the language to English")
+    public void the_user_changes_the_language_to_English() {
+        SelenideElement languageDropdown = $(By.xpath("(//img[@class='flag flag-pl'])[1]"));
+        languageDropdown.click();
+        SelenideElement englishOption = $(By.xpath("//div[contains(text(),'English')]"));
+        englishOption.click();
+    }
+
     @When("The user clicks the Sign Up button")
     public void the_user_clicks_the_Sign_Up_button() {
         $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-sign-in[1]/div[2]/p[1]/a[1]")).click();
@@ -41,36 +52,41 @@ public class NewUser {
     @When("The user enters Country as {string}")
     public void the_user_enters_Country_as(String country) {
         $(byCssSelector("input[placeholder='Select your country']")).setValue(country);
+        SelenideElement optionElement = $(By.xpath("//li[@role='option']"));
+        optionElement.click();
     }
 
     @When("The user enters Company VAT No. as {string}")
     public void the_user_enters_Company_VAT_No_as(String vatNumber) {
-        $(By.xpath("//input[@name='vat_number']")).setValue(vatNumber);
+        $(By.xpath("(//input[@id='tax-id-input'])[1]")).setValue(vatNumber);
     }
 
     @When("The user enters Company name as {string}")
     public void the_user_enters_Company_name_as(String companyName) {
-        $(By.xpath("//input[@name='company_name']")).setValue(companyName);
+        $(By.xpath("//input[@id='company-name-input']")).setValue(companyName);
     }
 
     @When("The user enters Street name and No. as {string}")
     public void the_user_enters_Street_name_and_No_as(String streetNameAndNumber) {
-        $(By.xpath("//input[@name='street_name_and_number']")).setValue(streetNameAndNumber);
+        $(By.xpath("//input[@id='street-name-and-number-input']")).setValue(streetNameAndNumber);
     }
 
     @When("The user enters Postal Code as {string}")
     public void the_user_enters_Postal_Code_as(String postalCode) {
-        $(By.xpath("//input[@name='postal_code']")).setValue(postalCode);
+        $(By.xpath("//input[@id='post-code-input']")).setValue(postalCode);
     }
 
     @When("The user enters City as {string}")
     public void the_user_enters_City_as(String city) {
-        $(By.xpath("//input[@name='city']")).setValue(city);
+
+        $(By.xpath("//input[@id='city-input']")).setValue(city);
     }
 
     @When("The user clicks the Next button to enter user data")
     public void the_user_clicks_the_Next_button_enter_user_data() {
-        $(By.xpath("//button[contains(text(), 'Next')]")).click();
+        SelenideElement submitButton = $(By.xpath("//button[@type='submit']"));
+        Selenide.actions().doubleClick(submitButton).perform();
+
     }
 
     @When("The user enters Full name as {string}")
