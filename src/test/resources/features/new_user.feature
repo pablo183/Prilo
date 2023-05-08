@@ -15,12 +15,12 @@ Feature: User Registration as Shipper
     And The user enters City as "Bialystok"
     And The user clicks the Next button to enter user data
     And The user enters Full name as "Leon Zawodowiec"
-    And The user enters E-mail address as "pablo183testy+auto@gmail.com"
-    And The user enters Repeat e-mail address as "pablo183testy+auto@gmail.com"
-    And The user enters Phone number as "<phone_number>"
-    And The user enters Password as "<password>"
-    And The user enters Repeat password as "<repeat_password>"
-    And The user clicks the Next button read and accept contract conditions
+    And The user enters E-mail address as "pablo183testy+autops1@gmail.com"
+    And The user enters Repeat e-mail address as "pablo183testy+autops1@gmail.com"
+    And The user enters Phone number as "666555444"
+    And The user enters Password as "!Pablo183"
+    And The user enters Repeat password as "!Pablo183"
+    And The user clicks the Next button to read and accept contract conditions
     And The user checks the Select all checkbox
     And The user clicks the Create an account button
     Then The user sees the message "Confirm your e-mail address to join the platform" on the registration success page

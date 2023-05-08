@@ -40,7 +40,7 @@ public class NewUser {
 
     @When("The user clicks Register as a shipper button")
     public void the_user_clicks_Register_as_a_shipper_button() {
-        sleep(3000);
+
         $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-role-selection[1]/div[2]/div[2]/div[1]/app-checkbox-button[1]/div[1]/div[1]")).click();
     }
 
@@ -94,46 +94,47 @@ public class NewUser {
 
     @When("The user enters E-mail address as {string}")
     public void the_user_enters_E_mail_address_as(String emailAddress) {
-        $(By.xpath("//input[@name='email_address']")).setValue(emailAddress);
+        $(By.xpath("//input[@id='email']")).setValue(emailAddress);
     }
 
     @When("The user enters Repeat e-mail address as {string}")
     public void the_user_enters_Repeat_e_mail_address_as(String repeatEmailAddress) {
-        $(By.xpath("//input[@name='repeat_email_address']")).setValue(repeatEmailAddress);
+        $(By.xpath("//input[@id='repeatEmail']")).setValue(repeatEmailAddress);
     }
 
     @When("The user enters Phone number as {string}")
     public void the_user_enters_Phone_number_as(String phoneNumber) {
-        $(By.xpath("//input[@name='phone_number']")).setValue(phoneNumber);
+        $(By.xpath("//input[@id='number']")).setValue(phoneNumber);
     }
 
     @When("The user enters Password as {string}")
     public void the_user_enters_Password_as(String password) {
-        $(By.xpath("//input[@name='password']")).setValue(password);
+        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-5']")).setValue(password);
     }
 
     @When("The user enters Repeat password as {string}")
     public void the_user_enters_Repeat_password_as(String repeatPassword) {
-        $(By.xpath("//input[@name='repeat_password']")).setValue(repeatPassword);
+        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-6']")).setValue(repeatPassword);
     }
 
     @When("The user clicks the Next button to read and accept contract conditions")
-    public void the_user_clicks_the_Next_button_read_and_accept_contract_conditions() {
-        $(By.xpath("//button[contains(text(), 'Next')]")).click();
+    public void the_user_clicks_the_Next_button_to_read_and_accept_contract_conditions() {
+        $(By.xpath("(//button[@type='submit'])[1]")).click();
     }
 
     @When("The user checks the Select all checkbox")
     public void the_user_checks_the_Select_all_checkbox() {
-        $(By.xpath("//input[@id='select-all']")).click();
+        $(By.xpath("(//div[@class='p-checkbox-box'])[1]")).click();
+
     }
 
     @When("The user clicks the Create an account button")
     public void the_user_clicks_the_Create_an_account_button() {
-        $(By.xpath("//button[contains(text(), 'Create an account')]")).click();
+        $(By.xpath("(//button[@type='submit'])[1]")).click();
     }
 
     @Then("The user sees the message {string} on the registration success page")
     public void the_user_sees_the_message_on_the_registration_success_page(String message) {
-        $(By.xpath("//div[contains(text(), '" + message + "')]")).shouldBe(Condition.visible);
+        $(By.xpath("//h4[contains(text(),'Confirm your e-mail address')]")).shouldBe(Condition.visible);
     }
 }
