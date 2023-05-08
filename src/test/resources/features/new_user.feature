@@ -8,16 +8,16 @@ Feature: User Registration as Shipper
     And The user clicks Register as a shipper button
     And The user clicks the Next button to enter company data
     And The user enters Country as "Ukraine"
-    And The user enters Company VAT No. as "123123123"
+    And The user enters Company VAT No. as "12312311"
     And The user enters Company name as "mistrz i małgorzata"
     And The user enters Street name and No. as "Lipowa"
     And The user enters Postal Code as "15-999"
     And The user enters City as "Bialystok"
     And The user clicks the Next button to enter user data
     And The user enters Full name as "Leon Zawodowiec"
-    And The user enters E-mail address as "pablo183testy+autops1@gmail.com"
-    And The user enters Repeat e-mail address as "pablo183testy+autops1@gmail.com"
-    And The user enters Phone number as "666555444"
+    And The user enters E-mail address as "pablo183testy+autops2@gmail.com"
+    And The user enters Repeat e-mail address as "pablo183testy+autops2@gmail.com"
+    And The user enters Phone number as "666555333"
     And The user enters Password as "!Pablo183"
     And The user enters Repeat password as "!Pablo183"
     And The user clicks the Next button to read and accept contract conditions
