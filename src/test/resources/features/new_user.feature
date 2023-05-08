@@ -14,9 +14,9 @@ Feature: User Registration as Shipper
     And The user enters Postal Code as "15-999"
     And The user enters City as "Bialystok"
     And The user clicks the Next button to enter user data
-    And The user enters Full name as "<full_name>"
-    And The user enters E-mail address as "<email_address>"
-    And The user enters Repeat e-mail address as "<repeat_email_address>"
+    And The user enters Full name as "Leon Zawodowiec"
+    And The user enters E-mail address as "pablo183testy+auto@gmail.com"
+    And The user enters Repeat e-mail address as "pablo183testy+auto@gmail.com"
     And The user enters Phone number as "<phone_number>"
     And The user enters Password as "<password>"
     And The user enters Repeat password as "<repeat_password>"

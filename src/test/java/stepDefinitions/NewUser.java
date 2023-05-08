@@ -78,7 +78,6 @@ public class NewUser {
 
     @When("The user enters City as {string}")
     public void the_user_enters_City_as(String city) {
-
         $(By.xpath("//input[@id='city-input']")).setValue(city);
     }
 
@@ -86,12 +85,11 @@ public class NewUser {
     public void the_user_clicks_the_Next_button_enter_user_data() {
         SelenideElement submitButton = $(By.xpath("//button[@type='submit']"));
         Selenide.actions().doubleClick(submitButton).perform();
-
     }
 
     @When("The user enters Full name as {string}")
     public void the_user_enters_Full_name_as(String fullName) {
-        $(By.xpath("//input[@name='full_name']")).setValue(fullName);
+        $(By.xpath("//input[@id='fullname']")).setValue(fullName);
     }
 
     @When("The user enters E-mail address as {string}")
