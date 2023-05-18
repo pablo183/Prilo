@@ -19,11 +19,13 @@ import static com.codeborne.selenide.Condition.*;
 
 public class LoginShipper {
 
-
+    /*
     @Given("The user is on the Prilo login page")
     public void the_user_is_on_the_prilo_login_page() {
         open("https://pilot.prilo.com/sign-in?returnUrl=%2Fdashboard");
-    }
+       }
+    */
+
 
     @Given("The user closes the cookie information popup")
     public void the_user_closes_the_cookie_information_popup() {
