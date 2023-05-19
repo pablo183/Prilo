@@ -10,7 +10,7 @@ Feature: User Registration as Shipper
     And The user enters the following company details:
       | Field                   | Value              |
       | Country                 | Ukraine            |
-      | Company VAT No.         | abc111114          |
+      | Company VAT No.         | abc111118          |
       | Company name            | mistrz i małgorzata|
       | Street name and No.     | Lipowa             |
       | Postal Code             | 15-999             |
@@ -19,8 +19,8 @@ Feature: User Registration as Shipper
     And The user enters the following user details:
       | Field                  | Value                 |
       | Full name              | Leon Zawodowiec       |
-      | E-mail address         | pablo183testy+abc111114@gmail.com |
-      | Repeat e-mail address  | pablo183testy+abc111114@gmail.com |
+      | E-mail address         | pablo183testy+abc111118@gmail.com |
+      | Repeat e-mail address  | pablo183testy+abc111118@gmail.com |
       | Phone number           | 666555333             |
       | Password               | !Pablo183             |
       | Repeat password        | !Pablo183             |
