@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import com.codeborne.selenide.SelenideElement;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -14,16 +13,13 @@ import static com.codeborne.selenide.Condition.*;
 
 public class LoginUsers {
 
-    /*
-    @Given("The user is on the Prilo login page")
-    public void the_user_is_on_the_prilo_login_page() {
-    }
-    */
-
+/*
     @When("The users closes the cookie information popup")
     public void the_users_closes_the_cookie_information_popup() {
         $(By.cssSelector("p-button[styleclass='ok-button']")).click();
     }
+
+ */
 
     @When("The users enters a valid email {string}")
     public void the_user_enters_a_valid_email(String email) {

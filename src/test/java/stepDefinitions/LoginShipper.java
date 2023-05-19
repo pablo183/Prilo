@@ -1,20 +1,12 @@
 package stepDefinitions;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
 public class LoginShipper {
@@ -50,7 +42,6 @@ public class LoginShipper {
 
     @Then("The user is redirected to the homepage")
     public void the_user_is_redirected_to_the_homepage() {
-        sleep(3000);
         SelenideElement element = $("img[src='assets/icons/avatar.svg']");
         element.shouldBe(visible);
     }

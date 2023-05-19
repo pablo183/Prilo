@@ -3,11 +3,12 @@ package stepDefinitions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,15 +16,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class NewUser {
 
-    @Given("The user is on the Prilo homepage")
-    public void the_user_is_on_the_Prilo_homepage() {
-        open("https://pilot.prilo.com/sign-in?returnUrl=%2Fdashboard");
-    }
-
+/*
     @Given("The user closes the cookie information popup new user")
     public void the_user_closes_the_cookie_information_popup_new_user() {
-        $(By.xpath("//body/app-root[1]/app-cookie-bar[1]/div[1]/div[1]/div[2]/p-button[1]/button[1]")).click();
+        $(By.cssSelector("p-button[styleclass='ok-button']")).click();
     }
+ */
 
     @Given("The user changes the language to English")
     public void the_user_changes_the_language_to_English() {
@@ -35,86 +33,45 @@ public class NewUser {
 
     @When("The user clicks the Sign Up button")
     public void the_user_clicks_the_Sign_Up_button() {
-        $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-sign-in[1]/div[2]/p[1]/a[1]")).click();
+        $(By.cssSelector("a[routerlink='/role-selection']")).click();
     }
 
     @When("The user clicks Register as a shipper button")
     public void the_user_clicks_Register_as_a_shipper_button() {
-
-        $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-role-selection[1]/div[2]/div[2]/div[1]/app-checkbox-button[1]/div[1]/div[1]")).click();
+        $(By.xpath("(//div[@class='checkbox-button-container'])[1]")).click();
     }
 
     @When("The user clicks the Next button to enter company data")
-    public void the_user_clicks_the_Next_button_enter_company_data() {
-        $(By.xpath("//body/app-root[1]/div[1]/div[1]/main[1]/app-role-selection[1]/div[2]/div[3]/p-button[1]/button[1]")).click();
+    public void the_user_clicks_the_Next_button_to_enter_company_data() {
+        $(By.cssSelector("button[type='button']")).click();
     }
 
-    @When("The user enters Country as {string}")
-    public void the_user_enters_Country_as(String country) {
-        $(byCssSelector("input[placeholder='Select your country']")).setValue(country);
+    @When("The user enters the following company details:")
+    public void the_user_enters_the_following_company_details(Map<String, String> companyDetails) {
+        $(byCssSelector("input[placeholder='Select your country']")).setValue(companyDetails.get("Country"));
         SelenideElement optionElement = $(By.xpath("//li[@role='option']"));
         optionElement.click();
-    }
-
-    @When("The user enters Company VAT No. as {string}")
-    public void the_user_enters_Company_VAT_No_as(String vatNumber) {
-        $(By.xpath("(//input[@id='tax-id-input'])[1]")).setValue(vatNumber);
-    }
-
-    @When("The user enters Company name as {string}")
-    public void the_user_enters_Company_name_as(String companyName) {
-        $(By.xpath("//input[@id='company-name-input']")).setValue(companyName);
-    }
-
-    @When("The user enters Street name and No. as {string}")
-    public void the_user_enters_Street_name_and_No_as(String streetNameAndNumber) {
-        $(By.xpath("//input[@id='street-name-and-number-input']")).setValue(streetNameAndNumber);
-    }
-
-    @When("The user enters Postal Code as {string}")
-    public void the_user_enters_Postal_Code_as(String postalCode) {
-        $(By.xpath("//input[@id='post-code-input']")).setValue(postalCode);
-    }
-
-    @When("The user enters City as {string}")
-    public void the_user_enters_City_as(String city) {
-        $(By.xpath("//input[@id='city-input']")).setValue(city);
+        $(By.xpath("(//input[@id='tax-id-input'])[1]")).setValue(companyDetails.get("Company VAT No."));
+        $(By.xpath("//input[@id='company-name-input']")).setValue(companyDetails.get("Company name"));
+        $(By.xpath("//input[@id='street-name-and-number-input']")).setValue(companyDetails.get("Street name and No."));
+        $(By.xpath("//input[@id='post-code-input']")).setValue(companyDetails.get("Postal Code"));
+        $(By.xpath("//input[@id='city-input']")).setValue(companyDetails.get("City"));
     }
 
     @When("The user clicks the Next button to enter user data")
-    public void the_user_clicks_the_Next_button_enter_user_data() {
-        SelenideElement submitButton = $(By.xpath("//button[@type='submit']"));
+    public void the_user_clicks_the_Next_button_to_enter_user_data() {
+        SelenideElement submitButton = $(By.cssSelector(".p-element.thin-yellow"));
         Selenide.actions().doubleClick(submitButton).perform();
     }
 
-    @When("The user enters Full name as {string}")
-    public void the_user_enters_Full_name_as(String fullName) {
-        $(By.xpath("//input[@id='fullname']")).setValue(fullName);
-    }
-
-    @When("The user enters E-mail address as {string}")
-    public void the_user_enters_E_mail_address_as(String emailAddress) {
-        $(By.xpath("//input[@id='email']")).setValue(emailAddress);
-    }
-
-    @When("The user enters Repeat e-mail address as {string}")
-    public void the_user_enters_Repeat_e_mail_address_as(String repeatEmailAddress) {
-        $(By.xpath("//input[@id='repeatEmail']")).setValue(repeatEmailAddress);
-    }
-
-    @When("The user enters Phone number as {string}")
-    public void the_user_enters_Phone_number_as(String phoneNumber) {
-        $(By.xpath("//input[@id='number']")).setValue(phoneNumber);
-    }
-
-    @When("The user enters Password as {string}")
-    public void the_user_enters_Password_as(String password) {
-        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-5']")).setValue(password);
-    }
-
-    @When("The user enters Repeat password as {string}")
-    public void the_user_enters_Repeat_password_as(String repeatPassword) {
-        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-6']")).setValue(repeatPassword);
+    @When("The user enters the following user details:")
+    public void the_user_enters_the_following_user_details(Map<String, String> userDetails) {
+        $(By.xpath("//input[@id='fullname']")).setValue(userDetails.get("Full name"));
+        $(By.xpath("//input[@id='email']")).setValue(userDetails.get("E-mail address"));
+        $(By.xpath("//input[@id='repeatEmail']")).setValue(userDetails.get("Repeat e-mail address"));
+        $(By.xpath("//input[@id='number']")).setValue(userDetails.get("Phone number"));
+        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-5']")).setValue(userDetails.get("Password"));
+        $(By.xpath("//input[@class='p-inputtext p-component p-element ng-tns-c123-6']")).setValue(userDetails.get("Repeat password"));
     }
 
     @When("The user clicks the Next button to read and accept contract conditions")
@@ -125,7 +82,6 @@ public class NewUser {
     @When("The user checks the Select all checkbox")
     public void the_user_checks_the_Select_all_checkbox() {
         $(By.xpath("(//div[@class='p-checkbox-box'])[1]")).click();
-
     }
 
     @When("The user clicks the Create an account button")
